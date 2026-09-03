@@ -1,13 +1,26 @@
 # VPET Level 2 Professional English Test Simulator
 
-A complete, original-content training simulator modeled on the publicly documented **Versant by Pearson Professional English Test — Level 2** flow.
+A complete, original-content training simulator modeled on the publicly documented **Versant by Pearson Professional English Test Level 2** flow.
 
-> **Independent educational tool.** This repository is not affiliated with, approved by, or endorsed by Pearson. It contains no official questions, recordings, logos, confidential prompts, or official scoring algorithm. “Versant” and related marks belong to their respective owner.
+> **Independent educational tool.** This repository is not affiliated with, approved by, or endorsed by Pearson. It contains no official questions, recordings, logos, confidential prompts, recalled live-test content, or proprietary scoring algorithm. “Versant” and related marks belong to their respective owner.
+
+## Question bank
+
+The simulator now contains:
+
+- **22 complete original forms**
+- **58 scored units per form**
+- **1,276 scored units across the bank**
+- **1,210 item screens/objects**, because each Reading Comprehension screen contains two scored questions
+- 20 workplace domains in the expanded bank, including customer operations, software release, logistics, healthcare, university services, manufacturing, banking, renewable energy, hospitality, retail, cybersecurity, research, human resources, construction, transport, media, nonprofit work, food distribution, consulting, and telecommunications
+- A complete-form selector, random-form launcher, and form-aware section practice
+
+The two original forms remain available as Forms A and B. Forms C through V are generated deterministically from reviewed domain specifications and original item templates. They are committed source content, not runtime AI output.
+
+See [docs/QUESTION-BANK.md](docs/QUESTION-BANK.md) for the inventory, authorship boundary, validation rules, and maintenance process.
 
 ## What is implemented
 
-- Two complete original practice forms.
-- Exactly **58 scored questions per form** across all ten Level 2 parts.
 - Strict, one-way exam progression with no back navigation.
 - Per-item countdowns and automatic submission on expiry.
 - Instruction and unscored sample screens before every part.
@@ -17,13 +30,13 @@ A complete, original-content training simulator modeled on the publicly document
 - Local autosave and resume after accidental closure.
 - Post-test section, skill, and question-level review.
 - Transparent heuristic scoring with confidence labels.
-- Printable and downloadable practice report.
+- Printable and downloadable practice reports.
 - Responsive interface optimized for a desktop testing station.
 - Zero runtime dependencies and a small production container.
 
 ## Level 2 structure represented
 
-| Part | Section | Scored questions | Simulator timing |
+| Part | Section | Scored units per form | Simulator timing |
 |---|---|---:|---:|
 | A | Sentence Completion | 10 | 25 seconds each |
 | B | Passage Reconstruction | 3 | 30 seconds reading + 90 seconds writing |
@@ -36,19 +49,19 @@ A complete, original-content training simulator modeled on the publicly document
 | I | Speaking Situations | 2 | 10 seconds preparation + 60 seconds response |
 | J | Story Retellings | 3 | One playback + 30 seconds response |
 
-The public guide specifies the ten parts, question counts, approximate 60-minute duration, one-way progression, and the published timers shown above. The guide does not publish a numeric response timer for Part G; this simulator uses a clearly documented 15-second transition window to enforce concise answers consistently.
+The public guide specifies the ten parts, question counts, approximate 60-minute duration, one-way progression, and published timers shown above. It does not publish a numeric response timer for Part G; the simulator uses a documented 15-second practice window to encourage concise spoken answers.
 
 Public format references:
 
 - [Official Professional English Test guide](https://www.pearson.com/content/dam/one-dot-com/one-dot-com/pearson-languages/en-gb/pdfs/versant-resources/versant-by-pearson-professional-english-test-official-test-guide.pdf)
-- [Official Pearson practice-test page](https://shop.mondly.com/products/versant-professional-english-test-practice-test)
+- [Pearson test-taker preparation page](https://www.pearson.com/languages/test-takers/versant-by-pearson/test-taker-preparation.html)
+- [Official Pearson Professional English practice-test page](https://versantstore.pearson.com/versant-professional-english-test/p/VERSPT-PET2)
 
 See [docs/TEST-FIDELITY.md](docs/TEST-FIDELITY.md) for the exact fidelity boundary.
 
 ## Run locally
 
 Node.js 22 or later is required. No package download is necessary.
-`npm start`, `npm test`, and the production image rebuild generated browser assets from `src/` before use.
 
 ```bash
 npm test
@@ -68,23 +81,27 @@ curl http://localhost:8080/healthz
 ```text
 .
 ├── .github/workflows/deploy-cloud-run.yml
-├── .gcloudignore
 ├── docs/
 │   ├── DEPLOYMENT.md
+│   ├── QUESTION-BANK.md
 │   └── TEST-FIDELITY.md
-├── scripts/build.mjs    # Deterministically assembles browser assets
+├── scripts/build.mjs
 ├── src/
-│   ├── app/             # Readable application source fragments
-│   ├── data/            # Two complete original question forms
+│   ├── app/             # Application and question-bank picker fragments
+│   ├── data/            # 22 complete original practice forms
 │   └── styles/          # Trainer and exam-workstation CSS
 ├── public/
 │   ├── scoring.js       # Transparent practice-scoring functions
 │   └── index.html       # Loads generated app.js, data.js, and styles.css
-├── test/scoring.test.mjs
+├── test/
+│   ├── question-bank.test.mjs
+│   └── scoring.test.mjs
 ├── Dockerfile
 ├── package.json
 └── server.mjs
 ```
+
+`npm run build` deterministically concatenates the ordered source fragments into browser assets. Generated `public/app.js`, `public/data.js`, and `public/styles.css` are rebuilt before tests, local startup, and container startup.
 
 ## Automated production deployment
 
@@ -115,13 +132,16 @@ GCP_CREDENTIALS_JSON
 
 `npm test` asserts:
 
-- each form totals exactly 58 scored units;
+- every complete form totals exactly 58 scored units;
 - every section matches its declared question count;
-- all question identifiers are unique;
+- all identifiers are unique across the complete bank;
+- Reading Comprehension and Response Selection keys are valid;
+- Passage Comprehension stories are grouped and played correctly;
 - every item has a valid type, section, and positive timer;
 - objective answer keys score deterministically;
 - blank attempts receive no hidden positive credit;
-- the practice-score orientation remains bounded.
+- the practice-score orientation remains bounded;
+- generated text contains no obvious doubled-article or doubled-punctuation defects.
 
 ## Privacy behavior
 
@@ -129,7 +149,7 @@ GCP_CREDENTIALS_JSON
 - In-progress text responses and summary history are stored only in browser storage.
 - Audio recordings exist as temporary browser object URLs for the current result-review session.
 - Browser speech recognition, when available, may be processed according to the browser vendor’s own service and privacy terms.
-- Clearing site data removes the locally stored attempt history.
+- Clearing site data removes locally stored attempt history.
 
 ## Scoring boundary
 
