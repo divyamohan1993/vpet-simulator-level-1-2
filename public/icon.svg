@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VPET Level 2">
+  <rect width="64" height="64" rx="14" fill="#102a56"/>
+  <path d="M16 17h8l8 23 8-23h8L36 49h-8L16 17Z" fill="#fff"/>
+  <circle cx="49" cy="48" r="9" fill="#56b88b"/>
+  <path d="M46 45.5c0-2.2 1.6-3.6 4-3.6 2.2 0 3.8 1.2 3.8 3 0 1.4-.8 2.3-2.5 3.2l-1.2.7c-.8.4-1.2.8-1.3 1.2h5.1v2.2h-8.2c0-2.4.9-3.7 3-4.9l1.4-.8c.9-.5 1.2-.9 1.2-1.4 0-.7-.5-1.1-1.4-1.1-1 0-1.5.6-1.5 1.5H46Z" fill="#102a56"/>
+</svg>

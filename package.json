@@ -1,0 +1,19 @@
+{
+  "name": "vpet-level-2-simulator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Original-content practice simulator modeled on the publicly documented Versant Professional English Test Level 2 structure.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prestart": "npm run build",
+    "start": "node server.mjs",
+    "dev": "PORT=8080 npm start",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "check": "npm run build && node --check server.mjs && node --check public/app.js && node --check public/data.js && node --check public/scoring.js && node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

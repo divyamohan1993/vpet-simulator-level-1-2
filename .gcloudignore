@@ -1,0 +1,14 @@
+# Source upload exclusions for `gcloud run deploy --source .`
+.gcloudignore
+.git
+.github
+.gitignore
+gha-creds-*.json
+node_modules
+coverage
+screens
+test
+docs
+README.md
+SECURITY.md
+*.log

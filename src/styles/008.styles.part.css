@@ -1,0 +1,370 @@
+  }
+
+  .metric-card:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .setup-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-summary {
+    position: static;
+  }
+
+  .reading-comprehension-layout,
+  .email-task-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .passage-column,
+  .email-brief {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .exam-window {
+    grid-template-rows: 82px minmax(520px, auto) 92px;
+  }
+
+  .instruction-content {
+    grid-template-columns: 1fr;
+  }
+
+  .direction-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .result-hero {
+    grid-template-columns: 1fr auto;
+  }
+
+  .estimate-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .result-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .strength-card {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .brand-copy,
+  .unofficial-pill,
+  .nav-button .icon {
+    display: none;
+  }
+
+  .nav-button {
+    padding: 0 0.65rem;
+  }
+
+  .home-page {
+    padding-top: 1rem;
+  }
+
+  .hero-panel {
+    min-height: auto;
+    padding: 2rem 0;
+  }
+
+  .hero-copy h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero-actions > button {
+    width: 100%;
+  }
+
+  .hero-console {
+    display: none;
+  }
+
+  .resume-banner,
+  .section-heading-row,
+  .latest-attempt,
+  .page-title-row,
+  .review-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .resume-banner {
+    display: flex;
+  }
+
+  .resume-actions {
+    justify-content: flex-end;
+  }
+
+  .metric-row,
+  .section-grid,
+  .training-grid,
+  .skill-result-grid,
+  .recommendation-grid,
+  .check-grid,
+  .choice-row {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-card,
+  .section-card {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft) !important;
+  }
+
+  .metric-card:last-child,
+  .section-card:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .latest-attempt {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .latest-score {
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.25rem;
+  }
+
+  .history-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .history-main {
+    grid-column: 1 / -1;
+  }
+
+  .history-stat:last-child {
+    display: none;
+  }
+
+  .setup-shell {
+    width: min(94vw, 680px);
+    padding-top: 2rem;
+  }
+
+  .setup-facts {
+    grid-template-columns: 1fr;
+  }
+
+  .setup-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-system-bar {
+    grid-template-columns: 1fr auto;
+    padding: 0 0.75rem;
+  }
+
+  .exam-session-meta {
+    display: none;
+  }
+
+  .exam-workspace {
+    width: 100%;
+    padding-top: 0;
+  }
+
+  .exam-overall-progress {
+    display: none;
+  }
+
+  .exam-window {
+    border-right: 0;
+    border-left: 0;
+    border-radius: 0;
+    grid-template-rows: 72px minmax(calc(100vh - 218px), auto) 84px;
+  }
+
+  .exam-part-header {
+    grid-template-columns: 68px 1fr;
+  }
+
+  .part-badge {
+    min-width: 68px;
+  }
+
+  .part-title {
+    padding: 0 0.9rem;
+  }
+
+  .part-title h1 {
+    font-size: 1.05rem;
+  }
+
+  .item-counter {
+    display: none;
+  }
+
+  .exam-footer {
+    padding: 0.45rem;
+  }
+
+  .exam-rule-note {
+    display: none;
+  }
+
+  .timer-ring {
+    width: 68px;
+    height: 68px;
+  }
+
+  .next-control {
+    width: 76px;
+    height: 64px;
+  }
+
+  .task-layout,
+  .spoken-main {
+    padding: 1.5rem 1rem;
+  }
+
+  .sentence-card {
+    padding: 1.2rem;
+  }
+
+  .reading-comprehension-layout,
+  .email-task-layout,
+  .spoken-task-layout {
+    display: block;
+  }
+
+  .assist-transcript {
+    width: 100%;
+    max-height: 240px;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .strict-choices {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .instruction-workspace {
+    width: 100%;
+    padding: 0;
+  }
+
+  .instruction-window {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .instruction-header {
+    padding: 1.1rem;
+  }
+
+  .part-badge.large {
+    width: 64px;
+    height: 64px;
+  }
+
+  .instruction-header h1 {
+    font-size: 1.35rem;
+  }
+
+  .instruction-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .result-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .overall-score-dial {
+    width: 150px;
+    height: 150px;
+    justify-self: center;
+  }
+
+  .estimate-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-result-row {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .section-result-row .result-bar {
+    grid-column: 2 / -1;
+  }
+
+  .review-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .review-columns section:first-child {
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .review-item > footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media print {
+  :root,
+  body {
+    background: white !important;
+  }
+
+  .no-print,
+  .site-header,
+  .site-footer,
+  .result-actions,
+  .recommendation-card button,
+  .review-heading button {
+    display: none !important;
+  }
+
+  .page-shell {
+    width: 100%;
+  }
+
+  .results-page {
+    padding: 0;
+  }
+
+  .result-hero,
+  .strength-card {
+    break-inside: avoid;
+    box-shadow: none;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .result-section,
+  .review-item,
+  .recommendation-card {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .review-section {
+    display: block;
+  }
+}

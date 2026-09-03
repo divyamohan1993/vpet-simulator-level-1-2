@@ -1,0 +1,11 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+node_modules/
+coverage/
+*.log
+gha-creds-*.json
+public/app.js
+public/data.js
+public/styles.css
